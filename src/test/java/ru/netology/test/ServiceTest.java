@@ -76,7 +76,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByDebitCardWithInalidNumber() throws SQLException, IOException {
+    void shouldPayByDebitCardWithInvalidNumber() {
         val paymentPage = mainPage.payByDebitCard();
         val invalidCardInformation = DataHelper.getInvalidCardInformation();
         paymentPage.enterCardInfo(invalidCardInformation);
@@ -84,7 +84,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByCreditCardWithInalidNumber() throws SQLException, IOException {
+    void shouldPayByCreditCardWithInvalidNumber() {
         val paymentPage = mainPage.payByCreditCard();
         val invalidCardInformation = DataHelper.getInvalidCardInformation();
         paymentPage.enterCardInfo(invalidCardInformation);
@@ -92,7 +92,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByDebitCardWithExpiredYear() throws SQLException, IOException {
+    void shouldPayByDebitCardWithExpiredYear() {
         val paymentPage = mainPage.payByDebitCard();
         val expiredYearCardInformation = DataHelper.getExpiredYearCardInformation();
         paymentPage.enterCardInfo(expiredYearCardInformation);
@@ -100,7 +100,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByCreditCardWithExpiredYear() throws SQLException, IOException {
+    void shouldPayByCreditCardWithExpiredYear() {
         val paymentPage = mainPage.payByCreditCard();
         val expiredYearCardInformation = DataHelper.getExpiredYearCardInformation();
         paymentPage.enterCardInfo(expiredYearCardInformation);
@@ -108,7 +108,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByDebitCardWithInvalidExpirationDate() throws SQLException, IOException {
+    void shouldPayByDebitCardWithInvalidExpirationDate() {
         val paymentPage = mainPage.payByDebitCard();
         val invalidExpirationDateCardInformation = DataHelper.getInvalidExpirationDateCardInformation();
         paymentPage.enterCardInfo(invalidExpirationDateCardInformation);
@@ -116,7 +116,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByCreditCardWithInvalidExpirationDate() throws SQLException, IOException {
+    void shouldPayByCreditCardWithInvalidExpirationDate() {
         val paymentPage = mainPage.payByCreditCard();
         val invalidExpirationDateCardInformation = DataHelper.getInvalidExpirationDateCardInformation();
         paymentPage.enterCardInfo(invalidExpirationDateCardInformation);
@@ -124,7 +124,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByDebitCardWithExpiredMonth() throws SQLException, IOException {
+    void shouldPayByDebitCardWithExpiredMonth() {
         val paymentPage = mainPage.payByDebitCard();
         val expiredMonthCardInformation = DataHelper.getExpiredMonthCardInformation();
         paymentPage.enterCardInfo(expiredMonthCardInformation);
@@ -132,7 +132,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByCreditCardWithExpiredMonth() throws SQLException, IOException {
+    void shouldPayByCreditCardWithExpiredMonth() {
         val paymentPage = mainPage.payByCreditCard();
         val expiredMonthCardInformation = DataHelper.getExpiredMonthCardInformation();
         paymentPage.enterCardInfo(expiredMonthCardInformation);
@@ -140,7 +140,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByDebitCardWithEmptyCardInformation() throws SQLException, IOException {
+    void shouldPayByDebitCardWithEmptyCardInformation() {
         val paymentPage = mainPage.payByDebitCard();
         val emptyCardInformation = DataHelper.getEmptyCardInformation();
         paymentPage.enterCardInfo(emptyCardInformation);
@@ -152,7 +152,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByCreditCardWithEmptyCardInformation() throws SQLException, IOException {
+    void shouldPayByCreditCardWithEmptyCardInformation() {
         val paymentPage = mainPage.payByCreditCard();
         val emptyCardInformation = DataHelper.getEmptyCardInformation();
         paymentPage.enterCardInfo(emptyCardInformation);
@@ -164,7 +164,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByDebitCardWithValidCardNumberAndInvalidOtherFields() throws SQLException, IOException {
+    void shouldPayByDebitCardWithValidCardNumberAndInvalidOtherFields() {
         val paymentPage = mainPage.payByDebitCard();
         val validCardNumberWithInvalidOtherFields = DataHelper.getValidCardNumberWithInvalidOtherFields();
         paymentPage.enterCardInfo(validCardNumberWithInvalidOtherFields);
@@ -175,7 +175,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByCreditCardWithValidCardNumberAndInvalidOtherFields() throws SQLException, IOException {
+    void shouldPayByCreditCardWithValidCardNumberAndInvalidOtherFields() {
         val paymentPage = mainPage.payByCreditCard();
         val validCardNumberWithInvalidOtherFields = DataHelper.getValidCardNumberWithInvalidOtherFields();
         paymentPage.enterCardInfo(validCardNumberWithInvalidOtherFields);

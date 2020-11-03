@@ -34,5 +34,5 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/app
 spring.datasource.username=app
 spring.datasource.password=pass
 ```
-- Для пользователей Docker Toolbox во всех вышеуказанных настройках и командах вместо _localhost_ необходимо указывать:
+- Для пользователей Docker Toolbox во всех вышеуказанных настройках и командах вместо _localhost_ необходимо указать:
 `192.168.99.100`

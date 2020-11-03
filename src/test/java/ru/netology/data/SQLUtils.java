@@ -33,7 +33,7 @@ public class SQLUtils {
         try (val conn = SQLUtils.getConnection();
              val deleteCreditRequestStmt = conn.createStatement();
              val deleteOrderEntityStmt = conn.createStatement();
-             val deletePaymentEntityStmt = conn.createStatement();
+             val deletePaymentEntityStmt = conn.createStatement()
         ) {
             deleteCreditRequestStmt.executeUpdate(deleteCreditRequest);
             deleteOrderEntityStmt.executeUpdate(deleteOrderEntity);
