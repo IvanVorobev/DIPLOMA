@@ -18,21 +18,29 @@
 
 3. Для запуска авто-тестов выполнить команду:
 
-`gradlew clean test allureReport`
+- для MySQL: 
+
+`gradlew clean test allureReport -Durl=jdbc:mysql://localhost:3306/app`
+
+- для PostgreSQL:
+
+`gradlew clean test allureReport -Durl=jdbc:postgresql://localhost:5432/app`
+
 
 4. Для просмотра отчета по результатам тестирования выполнить команду:
 
 `gradlew allureServe`
 
+5. Для завершения работы allureServe выполнить команду:
+
+`Ctrl + С` далее выбрать `Y`
+
+6. Для завершения работы контейнеров выполнить команду:
+
+`Ctrl + С` далее `docker-compose down`
+
+
 **Важно!**
 
-- В пункте 3 в файле _application.properties_ **по умолчанию** указаны параметры настройки для СУБД MySQL,
-для работы с СУБД PostgreSQL в данном файле необходимо указать:
-
-```
-spring.datasource.url=jdbc:postgresql://localhost:5432/app
-spring.datasource.username=app
-spring.datasource.password=pass
-```
-- Для пользователей Docker Toolbox во всех вышеуказанных настройках и командах вместо _localhost_ необходимо указать:
+Для пользователей Docker Toolbox во всех вышеуказанных настройках и командах вместо _localhost_ необходимо указать:
 `192.168.99.100`

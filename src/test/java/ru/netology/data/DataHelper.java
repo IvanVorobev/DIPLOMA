@@ -11,35 +11,41 @@ public class DataHelper {
     static Random random = new Random();
 
     public static String getApprovedCardNumber() {
-        return new String("4444 4444 4444 4441");
+        return "4444 4444 4444 4441";
     }
 
     public static String getDeclinedCardNumber() {
-        return new String("4444 4444 4444 4442");
+        return "4444 4444 4444 4442";
     }
 
     public static String getInvalidCardNumber() {
-        return new String("1111 1111 1111 111");
+        return "1111 1111 1111 111";
     }
 
     public static String getValidOwner() {
         Faker faker = new Faker(new Locale("en"));
-        return new String(faker.name().fullName());
+        return faker.name().fullName();
     }
 
     public static String getInvalidOwner() {
         Faker faker = new Faker(new Locale("ru"));
-        return new String(faker.name().fullName());
+        return faker.name().fullName();
     }
 
     public static String getValidCvc() {
-        int cvc = 100 + random.nextInt(999 - 100);
-        return new String(Integer.toString(cvc));
+        int min = 100;
+        int max = 999;
+        int diff = max - min;
+        int cvc = random.nextInt(diff + 1) + min;
+        return Integer.toString(cvc);
     }
 
     public static String getInvalidCvc() {
-        int cvc = 10 + random.nextInt(99 - 10);
-        return new String(Integer.toString(cvc));
+        int min = 10;
+        int max = 99;
+        int diff = max - min;
+        int cvc = random.nextInt(diff + 1) + min;
+        return Integer.toString(cvc);
     }
 
     @Value

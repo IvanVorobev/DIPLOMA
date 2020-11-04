@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public class DateGenerator {
+    static Random random = new Random();
     LocalDate today = LocalDate.now();
     DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MM");
     DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yy");
@@ -37,8 +38,10 @@ public class DateGenerator {
     }
 
     public Year getInvalidYear() {
-        Random random = new Random();
-        int newYear = 30 + random.nextInt(99 - 30);
+        int min = 30;
+        int max = 99;
+        int diff = max - min;
+        int newYear = random.nextInt(diff + 1) + min;
         return new Year(Integer.toString(newYear));
     }
 
@@ -58,8 +61,10 @@ public class DateGenerator {
     }
 
     public Month getInvalidMonth() {
-        Random random = new Random();
-        int newMonth = 13 + random.nextInt(99 - 13);
+        int min = 13;
+        int max = 99;
+        int diff = max - min;
+        int newMonth = random.nextInt(diff + 1) + min;
         return new Month(Integer.toString(newMonth));
     }
 }

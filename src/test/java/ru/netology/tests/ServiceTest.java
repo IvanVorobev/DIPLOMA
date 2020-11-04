@@ -1,4 +1,4 @@
-package ru.netology.test;
+package ru.netology.tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -9,10 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.data.SQLUtils;
-import ru.netology.page.MainPage;
-
-import java.io.IOException;
-import java.sql.SQLException;
+import ru.netology.pages.MainPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,18 +22,22 @@ public class ServiceTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-    @AfterAll
-    static void tearDownAll() {
-        SelenideLogger.removeListener("allure");
-    }
-
     @BeforeEach
     void setUp() {
         open("http://localhost:8080");
     }
 
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
+
+    static void cleanDb() {
+        SQLUtils.cleanTables();
+    }
+
     @Test
-    void shouldPayByApprovedDebitCard() throws SQLException, IOException {
+    void shouldPayByApprovedDebitCard() {
         val paymentPage = mainPage.payByDebitCard();
         val approvedCardInformation = DataHelper.getApprovedCardInformation();
         paymentPage.enterCardInfo(approvedCardInformation);
@@ -46,7 +47,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByDeclinedDebitCard() throws SQLException, IOException {
+    void shouldPayByDeclinedDebitCard() {
         val paymentPage = mainPage.payByDebitCard();
         val declinedCardInformation = DataHelper.getDeclinedCardInformation();
         paymentPage.enterCardInfo(declinedCardInformation);
@@ -56,7 +57,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByApprovedCreditCard() throws SQLException, IOException {
+    void shouldPayByApprovedCreditCard() {
         val paymentPage = mainPage.payByCreditCard();
         val approvedCardInformation = DataHelper.getApprovedCardInformation();
         paymentPage.enterCardInfo(approvedCardInformation);
@@ -66,7 +67,7 @@ public class ServiceTest {
     }
 
     @Test
-    void shouldPayByDeclinedCreditCard() throws SQLException, IOException {
+    void shouldPayByDeclinedCreditCard() {
         val paymentPage = mainPage.payByCreditCard();
         val declinedCardInformation = DataHelper.getDeclinedCardInformation();
         paymentPage.enterCardInfo(declinedCardInformation);
@@ -183,11 +184,6 @@ public class ServiceTest {
         paymentPage.invalidYear();
         paymentPage.invalidOwner();
         paymentPage.invalidCvc();
-    }
-
-    @AfterAll
-    static void cleanDb() throws SQLException, IOException {
-        SQLUtils.cleanTables();
     }
 }
 
