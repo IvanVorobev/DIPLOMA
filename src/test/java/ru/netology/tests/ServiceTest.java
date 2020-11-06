@@ -30,9 +30,6 @@ public class ServiceTest {
     @AfterAll
     static void tearDownAll() {
         SelenideLogger.removeListener("allure");
-    }
-
-    static void cleanDb() {
         SQLUtils.cleanTables();
     }
 
