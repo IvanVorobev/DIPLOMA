@@ -1,5 +1,9 @@
 ### Документация
 
+- **[План автоматизации тестирования](https://github.com/IvanVorobev/DIPLOMA/blob/master/documentation/Plan.md)**
+
+
+
 **Процедура настройки, установки и запуска ПО и авто-тестов**
 
 1. Для запуска СУБД (MySQL и PostgreSQL) и симулятора банковских сервисов gate-simulator выполнить команду:
