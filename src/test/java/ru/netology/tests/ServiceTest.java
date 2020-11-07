@@ -24,7 +24,7 @@ public class ServiceTest {
 
     @BeforeEach
     void setUp() {
-        open("http://localhost:8080");
+        open(System.getProperty("sut.url"));
     }
 
     @AfterAll

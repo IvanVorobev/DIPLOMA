@@ -42,4 +42,5 @@ test {
     systemProperty 'url', System.getProperty('url')
     systemProperty 'username', System.getProperty('username', 'app')
     systemProperty 'password', System.getProperty('password', 'pass')
+    systemProperty 'sut.url', System.getProperty('sut.url', 'http://localhost:8080')
 }
