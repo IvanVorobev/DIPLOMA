@@ -74,6 +74,16 @@ public class ServiceTest {
     }
 
     @Test
+    void shouldPayByApprovedDebitCardAndGetRightAmount() {
+        val paymentPage = mainPage.payByDebitCard();
+        val approvedCardInformation = DataHelper.getApprovedCardInformation();
+        paymentPage.enterCardInfo(approvedCardInformation);
+        paymentPage.sucsessNotification();
+        val paymentAmount = SQLUtils.getPaymentAmount();
+        assertEquals("45000", paymentAmount);
+    }
+
+    @Test
     void shouldPayByDebitCardWithInvalidNumber() {
         val paymentPage = mainPage.payByDebitCard();
         val invalidCardInformation = DataHelper.getInvalidCardInformation();

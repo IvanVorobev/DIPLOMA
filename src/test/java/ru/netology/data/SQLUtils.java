@@ -63,4 +63,16 @@ public class SQLUtils {
         }
         return null;
     }
+    public static String getPaymentAmount()  {
+        val amount = "SELECT * FROM payment_entity order by created desc limit 1;";
+        val runner = new QueryRunner();
+        try (val conn = getConnection()) {
+            val paymentAmount = runner.query(conn, amount, new BeanHandler<>(PaymentEntity.class));
+            return paymentAmount.getAmount();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
 }
