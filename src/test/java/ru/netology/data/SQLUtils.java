@@ -63,6 +63,7 @@ public class SQLUtils {
         }
         return null;
     }
+
     public static String getPaymentAmount()  {
         val amount = "SELECT * FROM payment_entity order by created desc limit 1;";
         val runner = new QueryRunner();
@@ -74,5 +75,4 @@ public class SQLUtils {
         }
         return null;
     }
-
 }

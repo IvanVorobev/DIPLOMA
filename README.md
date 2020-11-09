@@ -2,7 +2,7 @@
 
 - **[План автоматизации тестирования](https://github.com/IvanVorobev/DIPLOMA/blob/master/documentation/Plan.md)**
 - **[Отчет по итогам тестирования](https://github.com/IvanVorobev/DIPLOMA/blob/master/documentation/Report.md)**
-
+- **[Отчет по итогам автоматизации](https://github.com/IvanVorobev/DIPLOMA/blob/master/documentation/Summary.md)**
 
 **Процедура настройки, установки и запуска ПО и авто-тестов**
 
